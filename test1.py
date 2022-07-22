@@ -16,6 +16,7 @@ driver.get(web)
 
 # assign any keyword for searching
 keyword = "Adidas Schuhe"
+driver.implicitly_wait(2)
 # create WebElement for a search box
 search_box = driver.find_element(By.ID, 'twotabsearchtextbox')
 # type the keyword in searchbox
@@ -27,17 +28,21 @@ driver.implicitly_wait(5)
 #select first result
 ergebnise=  driver.find_element(By.CLASS_NAME, "s-image").click()
 driver.implicitly_wait(10)
+#PulldownMenü für Größe
 driver.implicitly_wait(5)
 schuhsize=  driver.find_element(By.ID, "native_dropdown_selected_size_name")
+size = Select(driver.find_element(By.ID, "native_dropdown_selected_size_name"))
 #schuhsize=  driver.find_element(By.CLASS_NAME, "a-native-dropdown a-declarative")
+size.select_by_index(2)
 driver.implicitly_wait(5)
-schuhsize=Select.select_by_index(0,2)
+#schuhsize.select_by_index(1)
+driver.implicitly_wait(5)
 driver.implicitly_wait(5)
 
 
-inKorb = driver.find_element(By.ID, 'dd-to-card-button').click()
-addto=  driver.find_element(By.CLASS_NAME, "a-button-inner").click()
-# quit the driver after finishing scraping (please keep this line at the bottom)
+#inKorb = driver.find_element(By.ID, 'add-to-card-button').click()
+
+ddto=  driver.find_element(By.CLASS_NAME, "a.button-input").click()
 
 driver.quit()
 
