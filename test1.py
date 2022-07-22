@@ -27,17 +27,16 @@ driver.implicitly_wait(5)
 #select first result
 ergebnise=  driver.find_element(By.CLASS_NAME, "s-image").click()
 driver.implicitly_wait(10)
-#schuhsize=  driver.find_element(By.ID, "native_dropdown_selected_size_name")
-schuhsize=  driver.find_element(By.CLASS_NAME, "a-native-dropdown a-declarative")
 driver.implicitly_wait(5)
-schuhsize=select_by_index(2)
+schuhsize=  driver.find_element(By.ID, "native_dropdown_selected_size_name")
+#schuhsize=  driver.find_element(By.CLASS_NAME, "a-native-dropdown a-declarative")
 driver.implicitly_wait(5)
-#schuhsize=  driver.find_element(By.XPATH,"//select[@id='native_dropdown_selected_size_name']/option[text()='44*']").click()
-#river.implicitly_wait(5)
+schuhsize=Select.select_by_index(0,2)
+driver.implicitly_wait(5)
 
 
 inKorb = driver.find_element(By.ID, 'dd-to-card-button').click()
-ergebnise=  driver.find_element(By.CLASS_NAME, "a-button-inner").click()
+addto=  driver.find_element(By.CLASS_NAME, "a-button-inner").click()
 # quit the driver after finishing scraping (please keep this line at the bottom)
 
 driver.quit()
