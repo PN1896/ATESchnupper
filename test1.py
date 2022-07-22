@@ -14,7 +14,10 @@ time.sleep(5) # Let the user actually see something!
 web = 'https://www.amazon.de'
 driver.get(web)
 driver.maximize_window
+#coockies click
+jazuCookies= search_button = driver.find_element(By.ID, 'sp-cc-accept').click()
 # assign any keyword for searching
+
 keyword = "Adidas Schuhe"
 driver.implicitly_wait(2)
 # create WebElement for a search box
@@ -27,8 +30,8 @@ search_button = driver.find_element(By.ID, 'nav-search-submit-button').click()
 # wait for the page to download
 driver.implicitly_wait(5)
 #select first result
-##INFO: Im Laufe des Tages gab es neue "Erste Treffer" in der Suche die keinerlei Größenauswahl benötigten, daher habe ich den Klick auf das erst Element gelengt welches eine Schuhgröße zur Auwahl stellt bevor der Srtikel in den Warenkorb gelegt werden kann.
-driver.find_element(By.XPATH,"//*[@id='search']/div[1]/div[1]/div/span[3]/div[2]/div[4]/div/div/div/div/div[1]/div/span/a/div/img").click()
+##INFO: Im Laufe des Tages gab es neue "Erste Treffer" in der Suche die keinerlei Größenauswahl benötigten, daher habe ich den Klick auf das erst Element gelegt welches eine Schuhgröße zur Auwahl stellt  [3] bevor der Srtikel in den Warenkorb gelegt werden kann.
+auswahl=driver.find_element(By.XPATH,"//div[contains(@data-cel-widget,'search_result_3')]").click()
 driver.implicitly_wait(10)
 #PulldownMenü für Größe
 driver.implicitly_wait(5)
@@ -51,4 +54,3 @@ warenkorb.click()
 
 #ddto=  driver.find_element(By.CLASS_NAME, "a.button-input").click()
 #driver.implicitly_wait(25)
-
